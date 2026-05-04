@@ -146,18 +146,18 @@ animation controller.
 
 # FILE STRUCTURE
  
-  lib/
-    main.dart                          — App entry point
-    agent_face_app.dart                — MaterialApp + dark theme setup
-    theme/app_theme.dart               — Color scheme and font config
-    models/animal_config.dart          — AnimalConfig + AnimalType enum
-    controllers/animation_controller.dart — FaceState machine + value holders
-    painters/face_painter.dart         — CustomPainter: all animal drawing code
-    widgets/
-      animated_face_widget.dart        — Drives all AnimationControllers + timers
-      animal_selector_widget.dart      — Horizontal carousel for picking animals
-      chat_bubble.dart                 — Message UI (agent left, user right)
-    screens/home_screen.dart           — Full app layout + chat logic
+           lib/
+             main.dart                          — App entry point
+             agent_face_app.dart                — MaterialApp + dark theme setup
+             theme/app_theme.dart               — Color scheme and font config
+             models/animal_config.dart          — AnimalConfig + AnimalType enum
+             controllers/animation_controller.dart — FaceState machine + value holders
+             painters/face_painter.dart         — CustomPainter: all animal drawing code
+             widgets/
+               animated_face_widget.dart        — Drives all AnimationControllers + timers
+               animal_selector_widget.dart      — Horizontal carousel for picking animals
+               chat_bubble.dart                 — Message UI (agent left, user right)
+             screens/home_screen.dart           — Full app layout + chat logic
 
 
 # RUNNING ON OPEN-SOURCE HARDWARE
