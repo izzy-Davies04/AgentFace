@@ -1,10 +1,9 @@
-=
-  AGENTFACE — Give Your AI Agent a Face
-  Cross-Platform Animated Avatar App
-  Written in Flutter/Dart
+AGENTFACE — Give Your AI Agent a Face
+Cross-Platform Animated Avatar App
+Written in Flutter/Dart
 =
 
-WHAT IS AGENTFACE?
+# WHAT IS AGENTFACE?
 
 AgentFace is an open-source, cross-platform application that gives any AI agent
 or chatbot a living, animated 2D animal avatar. Instead of talking to a text box,
@@ -12,33 +11,33 @@ you interact with a creature that breathes, blinks, reacts, and expresses emotio
 in real time.
 
 The app runs natively on:
-  • Android (phone & tablet)
-  • iOS (iPhone & iPad)
-  • macOS (Apple Silicon & Intel)
-  • Windows (x64 & ARM)
-  • Linux (x64, ARM, Raspberry Pi 4/5, and most open-source SBCs)
+    * Android (phone & tablet)
+    * iOS (iPhone & iPad)
+    * macOS (Apple Silicon & Intel)
+    * Windows (x64 & ARM)
+    * Linux (x64, ARM, Raspberry Pi 4/5, and most open-source SBCs)
 
 It is built entirely in Flutter (Dart), which compiles to native code on every
 platform listed above with a single shared codebase — no web browser required.
 
 
-#ANIMAL AVATARS INCLUDED
+# ANIMAL AVATARS INCLUDED
 
 The user can choose from six distinct animal personalities, each with its own
 color palette, animation style, and conversational tone:
 
-  🦊 FOX       — Clever & Curious       — warm orange, green eyes, sly wit
-  🐱 CAT       — Elegant & Witty        — purple-lavender, teal slit pupils
-  🦉 OWL       — Wise & Patient         — slate grey, golden eyes, ear tufts
-  🦎 AXOLOTL   — Playful & Regenerative — bubblegum pink, indigo eyes, gills
-  🐰 RABBIT    — Swift & Energetic      — cream white, hot-pink eyes, tall ears
-  🐼 PANDA     — Calm & Thoughtful      — black & white, eye patches
+    * 🦊 FOX       — Clever & Curious       — warm orange, green eyes, sly wit
+    * 🐱 CAT       — Elegant & Witty        — purple-lavender, teal slit pupils
+    * 🦉 OWL       — Wise & Patient         — slate grey, golden eyes, ear tufts
+    * 🦎 AXOLOTL   — Playful & Regenerative — bubblegum pink, indigo eyes, gills
+    * 🐰 RABBIT    — Swift & Energetic      — cream white, hot-pink eyes, tall ears
+    * 🐼 PANDA     — Calm & Thoughtful      — black & white, eye patches
 
 Switching animals instantly changes the avatar, color theme of the entire UI,
 and the personality of the agent's text responses.
 
 
-#HOW 2D ANIMATION IS GENERATED
+# HOW 2D ANIMATION IS GENERATED
 
 Every face is drawn in real time using Flutter's CustomPainter API, which gives
 direct access to a 2D Canvas. No sprite sheets, image files, or pre-rendered
@@ -81,42 +80,42 @@ The animation system has five independent layers that combine:
      filled oval (mouth cavity) and a smaller ellipse (tongue) are drawn.
      When closed, a quadratic Bézier curve draws a simple smile.
 
-#FACE STATE MACHINE
+# FACE STATE MACHINE
 
 The AgentAnimationController holds an enum FaceState with these states:
 
-  idle        — breathing + random blinks + random glances only
-  listening   — slight pupil attention shift toward center
-  thinking    — head bob + random gaze movement
-  talking     — mouth open/close loop at ~7 fps randomised
-  happy       — ear wiggle burst + brief blush amplification
-  surprised   — wide pupils + elevated head position
-  sleeping    — all loops stopped, eyes closed, slow breathing
+     * idle        — breathing + random blinks + random glances only
+     * listening   — slight pupil attention shift toward center
+     * thinking    — head bob + random gaze movement
+     * talking     — mouth open/close loop at ~7 fps randomised
+     * happy       — ear wiggle burst + brief blush amplification
+     * surprised   — wide pupils + elevated head position
+     * sleeping    — all loops stopped, eyes closed, slow breathing
 
 These states are driven externally by the chat interaction loop: when the user
 sends a message, the state machine transitions listening → thinking → talking →
 idle automatically, giving the illusion of genuine response behaviour.
 
 
-#HOW THE CANVAS DRAWING WORKS
+# HOW THE CANVAS DRAWING WORKS
 
 Each animal is drawn by a dedicated method inside FacePainter. The painter
 receives a normalized radius `r` derived from the widget size so faces scale
 perfectly at any resolution.
 
 Drawing primitives used:
-  • canvas.drawOval()        — head shape, eyes, muzzle, mouth cavity
-  • canvas.drawCircle()      — ears, iris, pupils, blush spots, gill knobs
-  • Path + quadraticBezierTo — smile curve, ear triangles, beak shape
-  • Paint.maskFilter (blur)  — blush glow, thinking dots, ambient lighting
-  • canvas.save/restore      — isolates ear rotation without affecting face
-  • canvas.translate()       — applies head bob offset cleanly
+    * canvas.drawOval()        — head shape, eyes, muzzle, mouth cavity
+    * canvas.drawCircle()      — ears, iris, pupils, blush spots, gill knobs
+    * Path + quadraticBezierTo — smile curve, ear triangles, beak shape
+    * Paint.maskFilter (blur)  — blush glow, thinking dots, ambient lighting
+    * canvas.save/restore      — isolates ear rotation without affecting face
+    * canvas.translate()       — applies head bob offset cleanly
 
 Highlights (tiny white circles offset from pupil center) make eyes appear
 glossy and alive. A specular-style shadow ring behind the face gives depth.
 
 
-#PERSONALITY AND RESPONSE SYSTEM
+# PERSONALITY AND RESPONSE SYSTEM
 
 Each animal has a curated list of 5 scripted response templates that match its
 personality archetype. The agent randomly picks from its own list when replying,
@@ -125,7 +124,7 @@ replaced by real LLM API calls (Claude, GPT-4, Llama, Mistral, etc.) while the
 avatar animation layer remains unchanged.
 
 
-#ADDING A REAL AI BACKEND
+# ADDING A REAL AI BACKEND
 
 To connect to a real language model:
 
@@ -143,7 +142,7 @@ scripted text for real AI output requires zero changes to any painter or
 animation controller.
 
 
-#FILE STRUCTURE
+# FILE STRUCTURE
 
   lib/
     main.dart                          — App entry point
@@ -159,7 +158,7 @@ animation controller.
     screens/home_screen.dart           — Full app layout + chat logic
 
 
-#RUNNING ON OPEN-SOURCE HARDWARE
+# RUNNING ON OPEN-SOURCE HARDWARE
 
 Flutter supports Linux ARM targets. To run on Raspberry Pi 4/5 or similar:
 
