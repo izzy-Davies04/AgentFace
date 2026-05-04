@@ -1,11 +1,11 @@
-================================================================================
+=
   AGENTFACE — Give Your AI Agent a Face
   Cross-Platform Animated Avatar App
   Written in Flutter/Dart
-================================================================================
+=
 
 WHAT IS AGENTFACE?
-──────────────────
+
 AgentFace is an open-source, cross-platform application that gives any AI agent
 or chatbot a living, animated 2D animal avatar. Instead of talking to a text box,
 you interact with a creature that breathes, blinks, reacts, and expresses emotion
@@ -22,8 +22,8 @@ It is built entirely in Flutter (Dart), which compiles to native code on every
 platform listed above with a single shared codebase — no web browser required.
 
 
-ANIMAL AVATARS INCLUDED
-────────────────────────
+#ANIMAL AVATARS INCLUDED
+
 The user can choose from six distinct animal personalities, each with its own
 color palette, animation style, and conversational tone:
 
@@ -38,8 +38,8 @@ Switching animals instantly changes the avatar, color theme of the entire UI,
 and the personality of the agent's text responses.
 
 
-HOW 2D ANIMATION IS GENERATED
-───────────────────────────────
+#HOW 2D ANIMATION IS GENERATED
+
 Every face is drawn in real time using Flutter's CustomPainter API, which gives
 direct access to a 2D Canvas. No sprite sheets, image files, or pre-rendered
 frames are used. Every curve, shadow, and highlight is computed mathematically
@@ -81,8 +81,8 @@ The animation system has five independent layers that combine:
      filled oval (mouth cavity) and a smaller ellipse (tongue) are drawn.
      When closed, a quadratic Bézier curve draws a simple smile.
 
-FACE STATE MACHINE
-───────────────────
+#FACE STATE MACHINE
+
 The AgentAnimationController holds an enum FaceState with these states:
 
   idle        — breathing + random blinks + random glances only
@@ -98,8 +98,8 @@ sends a message, the state machine transitions listening → thinking → talkin
 idle automatically, giving the illusion of genuine response behaviour.
 
 
-HOW THE CANVAS DRAWING WORKS
-──────────────────────────────
+#HOW THE CANVAS DRAWING WORKS
+
 Each animal is drawn by a dedicated method inside FacePainter. The painter
 receives a normalized radius `r` derived from the widget size so faces scale
 perfectly at any resolution.
@@ -116,8 +116,8 @@ Highlights (tiny white circles offset from pupil center) make eyes appear
 glossy and alive. A specular-style shadow ring behind the face gives depth.
 
 
-PERSONALITY AND RESPONSE SYSTEM
-─────────────────────────────────
+#PERSONALITY AND RESPONSE SYSTEM
+
 Each animal has a curated list of 5 scripted response templates that match its
 personality archetype. The agent randomly picks from its own list when replying,
 so repeated messages feel varied. In a production integration, these slots are
@@ -125,8 +125,8 @@ replaced by real LLM API calls (Claude, GPT-4, Llama, Mistral, etc.) while the
 avatar animation layer remains unchanged.
 
 
-ADDING A REAL AI BACKEND
-──────────────────────────
+#ADDING A REAL AI BACKEND
+
 To connect to a real language model:
 
   1. Add the `http` package to pubspec.yaml
@@ -143,8 +143,8 @@ scripted text for real AI output requires zero changes to any painter or
 animation controller.
 
 
-FILE STRUCTURE
-───────────────
+#FILE STRUCTURE
+
   lib/
     main.dart                          — App entry point
     agent_face_app.dart                — MaterialApp + dark theme setup
@@ -159,8 +159,8 @@ FILE STRUCTURE
     screens/home_screen.dart           — Full app layout + chat logic
 
 
-RUNNING ON OPEN-SOURCE HARDWARE
-─────────────────────────────────
+#RUNNING ON OPEN-SOURCE HARDWARE
+
 Flutter supports Linux ARM targets. To run on Raspberry Pi 4/5 or similar:
 
   sudo apt install clang cmake ninja-build pkg-config libgtk-3-dev
@@ -171,8 +171,8 @@ The app renders entirely on CPU canvas — no GPU required — making it suitabl
 for single-board computers with limited graphics capabilities.
 
 
-LICENSE & PHILOSOPHY
-─────────────────────
+#LICENSE & PHILOSOPHY
+
 AgentFace is designed to be embedded, forked, and extended. The separation
 between avatar rendering, animation state, and conversation logic means you can:
   • Swap in any LLM
