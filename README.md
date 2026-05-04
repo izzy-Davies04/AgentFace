@@ -11,11 +11,12 @@ you interact with a creature that breathes, blinks, reacts, and expresses emotio
 in real time.
 
 The app runs natively on:
-    * Android (phone & tablet)
-    * iOS (iPhone & iPad)
-    * macOS (Apple Silicon & Intel)
-    * Windows (x64 & ARM)
-    * Linux (x64, ARM, Raspberry Pi 4/5, and most open-source SBCs)
+         
+         * Android (phone & tablet)
+         * iOS (iPhone & iPad)
+         * macOS (Apple Silicon & Intel)
+         * Windows (x64 & ARM)
+         * Linux (x64, ARM, Raspberry Pi 4/5, and most open-source SBCs)
 
 It is built entirely in Flutter (Dart), which compiles to native code on every
 platform listed above with a single shared codebase — no web browser required.
@@ -104,6 +105,7 @@ receives a normalized radius `r` derived from the widget size so faces scale
 perfectly at any resolution.
 
 Drawing primitives used:
+
     * canvas.drawOval()        — head shape, eyes, muzzle, mouth cavity
     * canvas.drawCircle()      — ears, iris, pupils, blush spots, gill knobs
     * Path + quadraticBezierTo — smile curve, ear triangles, beak shape
@@ -143,7 +145,7 @@ animation controller.
 
 
 # FILE STRUCTURE
-
+ 
   lib/
     main.dart                          — App entry point
     agent_face_app.dart                — MaterialApp + dark theme setup
@@ -174,10 +176,11 @@ for single-board computers with limited graphics capabilities.
 
 AgentFace is designed to be embedded, forked, and extended. The separation
 between avatar rendering, animation state, and conversation logic means you can:
-  • Swap in any LLM
-  • Add new animal types by adding a new enum variant + draw method
-  • Use the face widget in any existing Flutter app as a drop-in component
-  • Export to web (Flutter Web) with no code changes
+      
+      * Swap in any LLM
+      * Add new animal types by adding a new enum variant + draw method
+      * Use the face widget in any existing Flutter app as a drop-in component
+      * Export to web (Flutter Web) with no code changes
 
 The goal: every AI agent deserves a face that feels alive.
 
